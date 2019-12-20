@@ -1,6 +1,6 @@
 # report-on-demand
 
-### Serviço para gerar relatórios por demanda de acordo com os dados retornados da tabela report_on_demand no banco reports
+### Serviço para gerar relatórios
 
 ### Dependências Dev
     - Instalar as seguintes dependências
@@ -8,22 +8,6 @@
         npm install aws-cli -g
         apt install awscli
         npm start
-        
-### Tabela
-
-    create table report_on_demand
-    (
-    	id int auto_increment comment 'ID único do registro',
-    	code varchar(20) not null comment 'Código aleatório que sera passado na url para identificar qual relatório sera executado',
-    	name varchar(100) null comment 'Primeiro nome do arquivo que será gerado para o relatório',
-    	host varchar(100) null comment 'Endereço para acessar o banco de dados',
-    	user varchar(20) null comment 'Usuário para autenticação no banco',
-    	password varchar(20) null comment 'Senha para autenticação no banco',
-    	command varchar(500) null comment 'Script sql que será executado',
-    	mail varchar(500) null comment 'Lista de e-mail''s separado por virgula que receberam o relatorio',
-    	constraint report_on_demand_pk
-    		primary key (id)
-    );
 
 ### Serverless
 
