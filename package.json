@@ -1,0 +1,24 @@
+{
+  "name": "report-on-demand-serverless",
+  "version": "1.0.0",
+  "description": "Extrair dados de uma procedure e salvar os dados em um arquivo .csv, armazena o arquivo no S3 da AWS e enviar por e-mail um link para baixar o arquivo via bucket.",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "serverless offline start",
+    "deploy": "serverless deploy",
+    "pack": "serverless package"
+  },
+  "author": "Bruno Vasconcellos Augusto",
+  "license": "ISC",
+  "dependencies": {
+    "fs-extra": "^8.1.0",
+    "json2csv": "^4.5.4",
+    "mysql": "^2.17.1",
+    "nodemailer": "^6.3.1"
+  },
+  "devDependencies": {
+    "aws-sdk": "^2.564.0",
+    "serverless": "^1.36.2",
+    "serverless-offline": "^5.12.0"
+  }
+}

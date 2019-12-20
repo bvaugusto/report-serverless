@@ -1,0 +1,8 @@
+node_modules
+serverless.yml
+.idea
+.vscode
+.serverless
+temp
+.env
+.DS_Store

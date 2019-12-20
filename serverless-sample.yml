@@ -1,0 +1,50 @@
+service: export-data-procedure
+custom:
+  stages:
+    - dev
+    - prod
+provider:
+  name: aws
+  runtime: nodejs8.10
+  stage: ${opt:stage, 'dev'}
+  region: ${opt:region, 'us-east-1'}
+  profile: ${opt:profile, 'default'}
+  timeout: 30
+  memory: 256
+  environment:
+    NODE_ENV: dev
+    FILE_PATH: 'temp/'
+    REGION: us-east-1
+    BUCKET: nome-bucket
+    ACL: public-read
+    AWS_ACCESS_KEY_ACCOUNT:
+    AWS_SECRET_ACCESS_KEY_ACCOUNT:
+    EMAIL_USER_ACCOUNT: xxx@xxx.com.br
+    EMAIL_PASSWORD_ACCOUNT: xxx
+    EMAIL_HOST: email-smtp.us-east-1.amazonaws.com
+    EMAIL_PORT: 465
+    EMAIL_SECURE: true
+    EMAIL_REJECT_AUTH: false
+    DB_HOST_CONFIG:
+    DB_USER_CONFIG:
+    DB_PASSWORD_CONFIG:
+    DB_DATABASE_CONFIG:
+package:
+  exclude:
+    - .vscode/**
+    - bin/**
+    - src/**
+    - (*.json)
+    - .env
+    - README.md
+  individually: true
+
+plugins:
+  - serverless-offline
+functions:
+  search:
+    handler: src/index.handle
+    events:
+      - http:
+          path: search/{codigo}
+          method: get
